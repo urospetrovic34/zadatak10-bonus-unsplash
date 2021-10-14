@@ -1,5 +1,423 @@
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Nunito", sans-serif;
+}
+
+button {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  font-size: 17.5px;
+  letter-spacing: 2px;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.list-view:hover,
+.grid-view:hover {
+  cursor: pointer;
+}
+
+body {
+  min-height: 101vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow-y: hidden;
+}
+
+.body-scroll {
+  overflow-y: scroll;
+}
+
+header {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  margin: 25px 0;
+}
+
+.wrapper {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.heading {
+  font-size: 25px;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 80%;
+  gap: 2%;
+}
+
+main > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2%;
+  flex: 1 0 30%;
+}
+
+main > div:hover {
+  cursor: pointer;
+  transition: filter 0.5s;
+}
+
+main > div:hover img {
+  filter: brightness(70%);
+}
+
+main > div:hover .picture-name {
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+
+.picture-name-container {
+  position: relative;
+}
+
+.picture-name {
+  position: absolute;
+  color: white;
+  font-size: 25px;
+  opacity: 0;
+  text-align: center;
+}
+
+.button-toggler button::after {
+  content: "LIST VIEW";
+}
+
+.grid-text button::after {
+  content: "GRID VIEW";
+}
+
+.list div {
+  flex: 1 0 100%;
+}
+
+.list img {
+  object-fit: cover;
+  height: 500px;
+  width: 100%;
+}
+
+main img {
+  object-fit: cover;
+  width: 100%;
+  height: 300px;
+}
+
+.upper-modal {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2.5%;
+  visibility: hidden;
+}
+
+.upper-modal img {
+  object-fit: contain;
+  height: 100%;
+  width: 100%;
+}
+
+.upper-modal:hover {
+  cursor: pointer;
+}
+
+.modal {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  position: fixed;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 2.5%;
+  visibility: hidden;
+}
+
+.modal-visible {
+  visibility: visible;
+}
+
+.expand-letter {
+  color: white;
+  font-size: 25px;
+  letter-spacing: 2px;
+  opacity: 0;
+}
+
+.modal-image {
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-image:hover {
+  filter: brightness(75%);
+  cursor: pointer;
+}
+
+.modal-image:hover .expand-letter {
+  opacity: 1;
+}
+
+.modal-data-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.modal-link-stats-data {
+  width: 100%;
+  display: flex;
+}
+
+.modal-link-stats-data > div:nth-child(1) {
+  width: 95%;
+}
+
+.modal-link-stats-data > div:nth-child(2) {
+  width: 5%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.fa-times {
+  font-size: 50px;
+}
+
+.fa-address-card,
+.fa-twitter,
+.fa-instagram,
+.fa-image,
+.fa-thumbs-up,
+.fa-long-arrow-alt-down {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.modal-user-data {
+  width: 100%;
+  height: 50%;
+}
+
+.user-avatar-name {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.user-avatar {
+  border-radius: 100%;
+  margin-right: 20px;
+}
+
+.user-name {
+  font-size: 30px;
+}
+
+.user-portfolio-twitter-insta {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  margin-left: 30px;
+}
+
+.user-portfolio-twitter-insta > div {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.user-portfolio-twitter-insta p,
+.user-portfolio-twitter-insta a {
+  font-size: 17.5px;
+}
+
+.user-portfolio-twitter-insta a {
+  text-decoration: none;
+  color: black;
+}
+
+.user-portfolio-twitter-insta a:hover {
+  cursor: pointer;
+}
+
+.close-modal {
+  margin-top: 30px;
+}
+.user-portfolio-link,
+.user-twitter-link,
+.user-instagram-link,
+.image-link,
+.likes-count,
+.downloads-count {
+  margin-left: 10px;
+}
+
+.loader,
+.loader:after {
+  border-radius: 100%;
+  width: 20em;
+  height: 20em;
+}
+.loader-container {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+  background-color: white;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.loader {
+  overflow: hidden;
+  top: 0;
+  bottom: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: 10px;
+  position: fixed;
+  border-top: 2em solid rgba(17, 17, 232, 0.2);
+  border-right: 2em solid rgba(17, 17, 232, 0.2);
+  border-bottom: 2em solid rgba(17, 17, 232, 0.2);
+  border-left: 2em solid #08203f;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  -webkit-animation: loading 1s infinite ease-in-out;
+  animation: loading 1s infinite ease-in-out;
+}
+.loader-transparent {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.hidden {
+  visibility: hidden;
+}
+@-webkit-keyframes loading {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes loading {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .modal {
+    flex-direction: column;
+  }
+  .modal-image {
+    background-size: contain;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .picture-name {
+    font-size: 12.5px;
+  }
+
+  main img {
+    height: 125px;
+  }
+
+  .list p {
+    font-size: 30px;
+  }
+
+  .modal-data-container {
+    justify-content: flex-start;
+    margin-bottom: 0px;
+  }
+
+  .user-avatar {
+    width: 75px;
+  }
+
+  .user-name {
+    font-size: 20px;
+  }
+
+  .modal-link-stats-data {
+    margin-top: 40px;
+  }
+
+  .user-portfolio-twitter-insta p,
+  .user-portfolio-twitter-insta a {
+    font-size: 10.5px;
+  }
+
+  .user-portfolio-twitter-insta > div {
+    margin-bottom: 5px;
+  }
+
+  .user-portfolio-twitter-insta {
+    margin-left: 15px;
+  }
+
+  .fa-times {
+    font-size: 20px;
+  }
+  .expand-letter {
+    font-size: 15px;
+  }
 }
